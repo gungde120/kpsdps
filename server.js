@@ -4,12 +4,13 @@ const cors = require("cors");
 
 const bodyParser = require("body-parser");
 const path = require('path');
+const { METHODS } = require("http");
 
 const app = express();
 
 var corsOptions = {
-  origin: "https://sparkling-kerchief-seal.cyclic.app",
-  methods: ["GET", "POST", "PUT", "DELETE"]
+  origin: "http://localhost:8080"
+  // methods: ["GET", "POST", "PUT", "DELETE"]
 };
 
 // app.use(FileUpload());
@@ -57,14 +58,14 @@ require('./app/routes/sungai.routes')(app);
 require('./app/routes/potensi.routes')(app);
 require('./app/routes/potensi.das.routes')(app);
 
-// // set port, listen for requests
-// const PORT = process.env.PORT || 8081;
-// app.listen(PORT, () => {
-//   console.log(`Server is running on port ${PORT}.`);
-// });
+// set port, listen for requests
+const PORT = process.env.PORT || 8081;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}.`);
+});
 
-// for deploy
-app.listen();
+// // for deploy
+// app.listen();
 
 function initial() {
   Role.create({
