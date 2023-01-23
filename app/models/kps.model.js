@@ -40,7 +40,7 @@ const Kps = {
     },
 
     getAll: function() {
-        let sql = "SELECT kps.kps_id, kps.logo_kps, kps.kps_name, das.das_name, das.alamat, kecamatan.kecamatan, kps.tgl_dibentuk, kps.jml_anggota, kps.profil_kps, kps.facebook, kps.instagram FROM kps JOIN das ON das.das_id = kps.das_id JOIN kecamatan ON kecamatan.kecamatan_id = das.kecamatan_id GROUP BY kps_id";
+        let sql = "SELECT kps.kps_id, kps.logo_kps, kps.kps_name, das.das_name, das.alamat, kecamatan.kecamatan, kps.tgl_dibentuk, kps.jml_anggota, kps.profil_kps, kps.facebook, kps.instagram FROM kps JOIN das ON das.das_id = kps.das_id JOIN kecamatan ON kecamatan.kecamatan_id = das.kecamatan_id ORDER BY kps_id";
         return promiseQuery(sql);
     },
 
