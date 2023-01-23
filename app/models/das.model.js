@@ -43,7 +43,7 @@ const Das = {
 
 
     getAll: function() {
-        let sql = "SELECT das.das_id, das.thumbnail, das.das_name, sungai.sungai_name, das.alamat, kecamatan.kecamatan, kps.kps_name, das.luas_das, das.deskripsi, das.latitude, das.longitude, (SELECT IFNULL(COUNT(1),0) FROM potensi_das WHERE potensi_das.das_id = das.das_id) AS 'jml_potensi' FROM das LEFT OUTER JOIN kps ON kps.das_id = das.das_id JOIN sungai ON das.sungai_id = sungai.sungai_id JOIN kecamatan ON kecamatan.kecamatan_id = das.kecamatan_id GROUP BY das_id";
+        let sql = "SELECT das.das_id, das.thumbnail, das.das_name, sungai.sungai_name, das.alamat, kecamatan.kecamatan, kps.kps_name, das.luas_das, das.deskripsi, das.latitude, das.longitude, (SELECT IFNULL(COUNT(1),0) FROM potensi_das WHERE potensi_das.das_id = das.das_id) AS 'jml_potensi' FROM das LEFT OUTER JOIN kps ON kps.das_id = das.das_id JOIN sungai ON das.sungai_id = sungai.sungai_id JOIN kecamatan ON kecamatan.kecamatan_id = das.kecamatan_id ORDER BY das_id";
         return promiseQuery(sql);
     },
 
