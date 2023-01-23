@@ -1,5 +1,5 @@
 const express = require("express");
-const cors = require("cors");
+// const cors = require("cors");
 // const FileUpload = require("express-fileupload");
 
 const bodyParser = require("body-parser");
@@ -7,13 +7,13 @@ const path = require('path');
 
 const app = express();
 
-var corsOptions = {
-  origin: "http://localhost:8080"
-};
+// var corsOptions = {
+//   origin: "http://localhost:8080"
+// };
 
 // app.use(FileUpload());
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 // parse requests of content-type - application/json
 app.use(express.json());
@@ -63,7 +63,6 @@ require('./app/routes/potensi.das.routes')(app);
 // });
 
 // for deploy
-const PORT = process.env.PORT || 8081;
 app.listen();
 
 function initial() {
